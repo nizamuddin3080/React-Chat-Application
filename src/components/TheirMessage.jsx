@@ -3,10 +3,10 @@ const TheirMessage = ({ message, lastMessage }) => {
 
     return (
         <div className='message-row'>
-            {isFirstMessageByUser & (
+            {isFirstMessageByUser && (
                 <div
                     className='message-avatar'
-                    style={{ backgroundImage: `url(${message?.sender?.avatar})` }}
+                    style={{ backgroundImage: message.sender && `url(${message?.sender?.avatar})` }}
                 />
             )}
 

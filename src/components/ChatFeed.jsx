@@ -1,4 +1,3 @@
-  
 import MyMessage from './MyMessage';
 import MessageForm from './MessageForm';
 import TheirMessage from './TheirMessage'
@@ -14,13 +13,13 @@ const ChatFeed = (props) => {
     console.log("messages==>", messages)
 
     const renderReadReceipts = (message, isMyMessage) => {
-        chat.people.map((person, index) => person.last_read === message.id && (
+        return chat.people.map((person, index) => person.last_read === message.id && (
             <div
                 key={`read_${index}`}
                 className='read-receipt'
                 style={{
                     float: isMyMessage ? 'right' : 'left',
-                    backgroundImage: person.person.avatar && `url(${person.person.avatar})`
+                    backgroundImage: `url(${person?.person?.avatar})`
 
                 }}
             />
@@ -37,7 +36,7 @@ const ChatFeed = (props) => {
             const message = messages[key];
             const lastMessageKey = index === 0 ? null : keys[index - 1];
             const isMyMessage = userName === message.sender.username;
-            
+
             return (
                 <div key={`msg_${index}`} style={{ width: '100%' }}>
                     <div className='message-block'>
