@@ -9,7 +9,7 @@ const LoginForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const authObject = { 'Project-Id': "35960980-665e-4c3f-b1eb-5fe098a410f4", 'User-Name': username, 'User-Secret': password }
+        const authObject = { 'Project-Id': "2fe36ca1-dd1d-4c36-8874-c7f658e22b12", 'User-Name': username, 'User-Secret': password }
         try {
             //this the request from chat engine to get username & password
             await axios.get('https://api.chatengine.io/chats', { headers: authObject })
@@ -20,11 +20,12 @@ const LoginForm = () => {
             localStorage.setItem('password', password)
 
             window.location.reload();
-             
+
 
 
         } catch (error) {
             setError('Wrong credentials found...')
+
         }
 
 
@@ -57,7 +58,6 @@ const LoginForm = () => {
                             <span>Start Chatting</span>
 
                         </button>
-                        
                         <h2 className="error">{error}</h2>
 
                     </div>
